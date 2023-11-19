@@ -17,3 +17,5 @@ create table
         foto text,
         endereco int references enderecos(id)
     );
+
+alter table enderecos add column estado text;
