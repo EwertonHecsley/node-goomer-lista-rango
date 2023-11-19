@@ -14,7 +14,7 @@ const intermediarioValidacoes = async (req, res, next) => {
         };
         next();
     } catch (error) {
-        return res.status(500).json({ mensagem: 'Erro interno do servidor', resposta: error.message })
+        return res.status(500).json({ mensagem: 'Erro interno do servidor.', resposta: error.message })
     }
 };
 

@@ -25,6 +25,24 @@ const uploadImagem = async (path, buffer, mimetype) => {
     }
 };
 
+const buscarImagem = async (nome) => {
+    const imagem = await s3.listObjects({
+        Bucket: process.env.BUCKET_KEY_NAME,
+        Prefix: `restaurantes/${nome}`
+    }).promise();
+
+    return imagem.Contents;
+}
+
+const excluirImagem = async (path) => {
+    await s3.deleteObject({
+        Bucket: process.env.BUCKET_KEY_NAME,
+        Key: path
+    }).promise()
+};
+
 module.exports = {
-    uploadImagem
+    uploadImagem,
+    buscarImagem,
+    excluirImagem
 }
