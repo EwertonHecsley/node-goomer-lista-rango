@@ -25,7 +25,8 @@ const rota_listar_promocao = require('./rotas/promocao/rota_listarPromocao');
 const rota_remover_promocao_produto = require('./rotas/promocao/rota_removerPromocaoProduto');
 const rota_trocar_promocao_produto = require('./rotas/promocao/rota_trocarPromocao');
 const rota_atualizar_promocao_produto = require('./rotas/promocao/rota_atualizarPromocao');
-;
+const rota_deletar_promocao_produto = require('./rotas/promocao/rota_deletarPromocao');
+
 app.use('/', rota_cadastrar_restaurante);
 app.use('/', rota_detalhar_restaurante);
 app.use('/', rota_atualizar_restaurante);
@@ -47,6 +48,7 @@ app.use('/', rota_cadastrar_promocao);
 app.use('/', rota_atualizar_promocao_produto);
 app.use('/', rota_remover_promocao_produto);
 app.use('/', rota_trocar_promocao_produto);
+app.use('/', rota_deletar_promocao_produto);
 app.use('/', rota_listar_promocao);
 
 module.exports = app;
