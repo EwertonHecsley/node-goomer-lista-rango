@@ -40,10 +40,9 @@ const atualizarRestaurante = async (req, res) => {
             .where({ id })
             .returning('id');
 
-        const novoRestaurante = await knex('restaurantes')
+        await knex('restaurantes')
             .update({ nome, horario, foto: imagem.url, endereco: novoEndereco[0].id })
             .where({ id })
-            .returning('*');
 
         return res.status(200).json({ mensagem: 'Restaurante Atualizado com sucesso.' })
     } catch (error) {
