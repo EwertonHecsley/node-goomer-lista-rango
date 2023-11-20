@@ -3,7 +3,7 @@ const { excluirImagem, buscarImagemProdutos } = require('../../configuracoes/con
 
 const deletarProduto = async (req, res) => {
     const { id } = req.params;
-    const { nome } = req.produto;
+
     try {
         await knex('produtos').where({ id }).del();
 

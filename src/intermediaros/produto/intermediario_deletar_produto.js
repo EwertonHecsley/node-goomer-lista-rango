@@ -7,7 +7,6 @@ const intermediarioDeletarProduto = async (req, res, next) => {
         if (!produto) {
             return res.status(404).json({ mensagem: 'Produto não encontrado para esse ID.' })
         }
-        req.produto = produto;
         next();
     } catch (error) {
         return res.status(500).json({ mensagem: 'Erro interno do servidor.', resposta: error.message })
