@@ -35,6 +35,15 @@ const buscarImagem = async (id) => {
     return imagem.Contents;
 }
 
+const buscarImagemProdutos = async (id) => {
+    const imagem = await s3.listObjects({
+        Bucket: process.env.BUCKET_KEY_NAME,
+        Prefix: `produtos/${id}`
+    }).promise();
+
+    return imagem.Contents;
+}
+
 const excluirImagem = async (path) => {
     await s3.deleteObject({
         Bucket: process.env.BUCKET_KEY_NAME,
@@ -45,5 +54,6 @@ const excluirImagem = async (path) => {
 module.exports = {
     uploadImagem,
     buscarImagem,
-    excluirImagem
+    excluirImagem,
+    buscarImagemProdutos
 }
