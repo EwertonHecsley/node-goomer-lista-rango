@@ -16,23 +16,19 @@ const atualizarRestaurante = async (req, res) => {
         logradouro,
         bairro
     } = req.endereco;
-    const {
-        originalname,
-        buffer,
-        mimetype
-    } = req.file;
 
     try {
         let imagem = null;
 
         if (req.file) {
-            imagem = await buscarImagem(nome);
+            const { originalname, buffer, mimetype } = req.file;
+            imagem = await buscarImagem(id);
 
             if (imagem.length > 0) {
                 await excluirImagem(imagem[0].Key);
             }
 
-            imagem = await uploadImagem(`restaurantes/${nome}/${originalname}`, buffer, mimetype);
+            imagem = await uploadImagem(`restaurantes/${id}/${nome}/${originalname}`, buffer, mimetype);
         };
 
         const novoEndereco = await knex('enderecos')

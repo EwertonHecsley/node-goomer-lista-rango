@@ -20,15 +20,16 @@ const uploadImagem = async (path, buffer, mimetype) => {
     }).promise()
 
     return {
+
         path: imagem.Key,
         url: `https://${process.env.BUCKET_KEY_NAME}.${process.env.BUCKET_ENDPOINT}/${imagem.Key}`
     }
 };
 
-const buscarImagem = async (nome) => {
+const buscarImagem = async (id) => {
     const imagem = await s3.listObjects({
         Bucket: process.env.BUCKET_KEY_NAME,
-        Prefix: `restaurantes/${nome}`
+        Prefix: `restaurantes/${id}`
     }).promise();
 
     return imagem.Contents;
