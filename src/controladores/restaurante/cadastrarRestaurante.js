@@ -27,7 +27,7 @@ const novoRestaurante = async (req, res) => {
         const restaurante = await knex('restaurantes')
             .insert({ nome, horario, foto: imagem.url, endereco: endereco[0].id })
             .returning('*');
-        return res.status(201).json({ mensagem: 'Restaurante cadastrado com sucesso.', restaurante });
+        return res.status(201).json({ mensagem: 'Restaurante cadastrado com sucesso.', restaurante: restaurante[0] });
     } catch (error) {
         return res.status(500).json({ mensagem: 'Erro interno do servidor.', resposta: error.message })
     }
