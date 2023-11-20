@@ -22,6 +22,7 @@ const rota_deletar_produto = require('./rotas/produtos/rota_deletarProduto');
 
 const rota_cadastrar_promocao = require('./rotas/promocao/rota_cadastrarPromocao');
 const rota_listar_promocao = require('./rotas/promocao/rota_listarPromocao');
+const rota_remover_promocao_produto = require('./rotas/promocao/rota_removerPromocaoProduto');
 
 app.use('/', rota_cadastrar_restaurante);
 app.use('/', rota_detalhar_restaurante);
@@ -41,6 +42,7 @@ app.use('/', rota_deletar_produto);
 app.use('/', rota_listar_produtos);
 
 app.use('/', rota_cadastrar_promocao);
+app.use('/', rota_remover_promocao_produto);
 app.use('/', rota_listar_promocao);
 
 module.exports = app;
