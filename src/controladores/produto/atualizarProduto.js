@@ -3,12 +3,14 @@ const { buscarImagem, excluirImagem, uploadImagem } = require('../../configuraco
 
 const atualizarProduto = async (req, res) => {
     const { id } = req.params;
-    const { nome, preco_produto, categoria_produto_id, promocao } = req.body;
-    const { originalname, buffer, mimetype } = req.file;
+    const { nome, preco_produto, categoria_produto_id } = req.body;
+
     try {
         let imagem = null;
+
         if (req.file) {
-            imagem = await buscarImagem(nome);
+            const { originalname, buffer, mimetype } = req.file;
+            imagem = await buscarImagem(id);
 
             if (imagem.length > 0) {
                 await excluirImagem(imagem[0].Key);
@@ -17,7 +19,7 @@ const atualizarProduto = async (req, res) => {
             imagem = await uploadImagem(`produtos/${nome}/${originalname}`, buffer, mimetype);
         };
         await knex('produtos')
-            .update({ nome, preco_produto, categoria_produto_id, promocao, foto: imagem.url })
+            .update({ nome, preco_produto, categoria_produto_id, foto: imagem.url })
             .where({ id })
         return res.status(200).json({ mensagem: 'Produto atualizado com sucesso.' })
     } catch (error) {
