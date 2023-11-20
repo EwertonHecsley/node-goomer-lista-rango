@@ -51,3 +51,7 @@ create table
         categoria_produto_id int references categorias(id) not null,
         promocao int references promocoes(id) default null
     );
+
+alter table promocoes
+add
+    column produto_id int references produtos(id) not null;

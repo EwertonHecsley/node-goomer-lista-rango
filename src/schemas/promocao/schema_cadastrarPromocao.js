@@ -12,6 +12,10 @@ const schemaCadPromocao = joi.object({
     produto_id: joi.number().required().messages({
         'any.required': 'Campo produto_id é obrigatorio.',
     }),
+    dia_semana: joi.string().required().messages({
+        'any.required': 'Campo dia_semana é obrigatorio.',
+        'string.empty': 'Campo dia_semana não pode ser vazio.'
+    }),
     horario_inicio: joi.string().required().messages({
         'any.required': 'Campo horario_inicio é obrigatorio.',
         'string.empty': 'Campo horario_inicio não pode ser vazio.'
