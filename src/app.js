@@ -15,6 +15,7 @@ const rota_deletar_categoria_produto = require('./rotas/categoria/rota_deletarCa
 const rota_atualizar_categoria_produto = require('./rotas/categoria/rota_atualizarCategoria');
 
 const rota_cadastrar_produto = require('./rotas/produtos/rota_criarProduto');
+const rota_listar_produtos = require('./rotas/produtos/rota_listarProduto');
 
 app.use('/', rota_cadastrar_restaurante);
 app.use('/', rota_detalhar_restaurante);
@@ -28,5 +29,6 @@ app.use('/', rota_deletar_categoria_produto);
 app.use('/', rota_listar_categoria_produto);
 
 app.use('/', rota_cadastrar_produto);
+app.use('/', rota_listar_produtos);
 
 module.exports = app;
