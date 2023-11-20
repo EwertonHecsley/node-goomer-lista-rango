@@ -19,3 +19,9 @@ create table
     );
 
 alter table enderecos add column estado text;
+
+create table
+    categorias (
+        id serial primary key,
+        descricao text
+    );
