@@ -36,16 +36,4 @@ As tecnologias utilizadas neste projeto foram:
 
 Estou feliz por ter finalizado este desafio. Foi uma experiência muito gratificante que me permitiu aprender e crescer como desenvolvedor.
 
-## Recomendações
-
-Para melhorar ainda mais esta API, poderia ser implementado o seguinte:
-
-Validação de campos adicionais, como o CEP do restaurante.
-
-Implementação de autenticação e autorização.
-
-Implementação de cache para melhorar o desempenho da API.
-
-Agradecimentos
-
 Agradeço a todos que contribuíram para o desenvolvimento deste projeto.
