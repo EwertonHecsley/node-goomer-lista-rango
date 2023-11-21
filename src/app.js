@@ -3,6 +3,7 @@ const app = express();
 
 app.use(express.json());
 
+const home = require('./rotas/home/homePage');
 const rota_listar_restaurantes = require('./rotas/restaurantes/rota_listarRestaurantes');
 const rota_cadastrar_restaurante = require('./rotas/restaurantes/rota_cadastrarRestaurante');
 const rota_deletar_restaurante = require('./rotas/restaurantes/rota_deletarRestaurante');
@@ -26,6 +27,8 @@ const rota_remover_promocao_produto = require('./rotas/promocao/rota_removerProm
 const rota_trocar_promocao_produto = require('./rotas/promocao/rota_trocarPromocao');
 const rota_atualizar_promocao_produto = require('./rotas/promocao/rota_atualizarPromocao');
 const rota_deletar_promocao_produto = require('./rotas/promocao/rota_deletarPromocao');
+
+app.use('/', home);
 
 app.use('/', rota_cadastrar_restaurante);
 app.use('/', rota_detalhar_restaurante);
